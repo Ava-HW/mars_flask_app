@@ -1,18 +1,54 @@
 {% extends "layout.html" %}
 {% block main %}
+<main>
   <!-- Hero Section -->
   <div class="hero-image">
-   <div class="hero-text">
-     <h1>Welcome to Mars Photos!</h1>
-     <p>Explore NASA's images of Mars</p>
-     <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-      <a href="/photos" class="text-white text-decoration-none">View photos</a>
-    </button>
-   </div>
+    <div class="hero-text">
+      <h1>Welcome to Mars Photos!</h1>
+      <p>Explore NASA's images of Mars</p>
+      <a href="/photos" class="btn btn-primary text-white text-decoration-none">View photos</a>
+    </div>
+  </div>
 
- </div>
+  <div class="container my-5">
+    <!-- Start featurettes -->
+    <hr class="featurette-divider">
 
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First fun fact</h2>
+        <p class="lead">Insert fun fact here</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
 
+    <hr class="featurette-divider">
 
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Second fun fact</h2>
+        <p class="lead">Another fun fact here</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
 
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Third fun fact</h2>
+        <p class="lead">Insert fun fact here</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+  </div>
+</main>
 {% endblock %}
