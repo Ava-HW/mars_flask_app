@@ -1,20 +1,60 @@
 {% extends 'layout.html' %}
 {% block main %}
- <!-- Perseverance content -->
- <div class="container my-5">
-   <h2>Perseverance photos</h2>
-   {% for i in perseverance_photos %}
-   <img class="margin" src="{{ i['image']}}">
-   {% endfor %}
- </div>
 
- <!-- Curiosity content -->
- <div class="container my-5">
-   <h2>Curiosity photos</h2>
-   {% for i in curiosity_photos %}
-   <img class="margin" src="{{ i['image']}}">
-   {% endfor %}
- </div>
+<!-- Perseverance Carousel -->
+<div class="container my-5">
+  <h2>Perseverance Photos</h2>
+  <div id="perseveranceCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for i in perseverance_photos | batch(3) %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="row">
+          {% for photo in i %}
+          <div class="col-md-4">
+            <img src="{{ photo['image'] }}" class="d-block w-100" alt="Perseverance Photo">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#perseveranceCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#perseveranceCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
+<!-- Curiosity Carousel -->
+<div class="container my-5">
+  <h2>Curiosity Photos</h2>
+  <div id="curiosityCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for i in curiosity_photos | batch(3) %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="row">
+          {% for photo in i %}
+          <div class="col-md-4">
+            <img src="{{ photo['image'] }}" class="d-block w-100" alt="Curiosity Photo">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#curiosityCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#curiosityCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
 {% endblock %}
