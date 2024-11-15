@@ -58,3 +58,14 @@ html, body {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
+.resizable-image {
+  height: 400px; /* Set the desired height */
+  object-fit: cover; /* Crop the image to fill the height while preserving aspect ratio */
+  object-position: center; /* Align the image to the center */
+  width: auto; /* Allow the width to adjust based on the original aspect ratio */
+}
+
+/* .carousel-item {
+  display: flex; /* Ensure images are properly aligned in the row */
+  justify-content: center; /* Center images horizontally */
+} */

@@ -4,14 +4,14 @@
 <!-- Perseverance Carousel -->
 <div class="container my-5">
   <h2>Perseverance Photos</h2>
-  <div id="perseveranceCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="perseveranceCarousel" class="carousel slide" data-interval="false">
     <div class="carousel-inner">
       {% for i in perseverance_photos | batch(3) %}
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="row">
           {% for photo in i %}
           <div class="col-md-4">
-            <img src="{{ photo['image'] }}" class="d-block w-100" alt="Perseverance Photo">
+            <img src="{{ photo['image'] }}" class="d-block w-100 rezsizeable-image" alt="Perseverance Photo">
           </div>
           {% endfor %}
         </div>
@@ -32,14 +32,14 @@
 <!-- Curiosity Carousel -->
 <div class="container my-5">
   <h2>Curiosity Photos</h2>
-  <div id="curiosityCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="curiosityCarousel" class="carousel slide" data-interval="false">
     <div class="carousel-inner">
       {% for i in curiosity_photos | batch(3) %}
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="row">
           {% for photo in i %}
           <div class="col-md-4">
-            <img src="{{ photo['image'] }}" class="d-block w-100" alt="Curiosity Photo">
+            <img src="{{ photo['image'] }}" class="d-block w-100 resizable-image" alt="Curiosity Photo" >
           </div>
           {% endfor %}
         </div>

@@ -70,7 +70,7 @@ def get_photos(rover_name):
     # print(f"Max sol for {rover_name}: {max_sol}")
     # print(f"Max date for {rover_name}: {max_date}")
     # Define the endpoint and parameters
-    url = f'https://api.nasa.gov/mars-photos/api/v1/rovers/{rover_name}/photos?sol=4000&api_key=RjE7wCLmJXnlXVS8z6tyyJpe8G8dmXHgXIqafvAc'
+    url = f'https://api.nasa.gov/mars-photos/api/v1/rovers/{rover_name}/photos?&api_key=RjE7wCLmJXnlXVS8z6tyyJpe8G8dmXHgXIqafvAc'
     params = {
         'sol': max_sol,
         'api_key': api_key,
@@ -86,13 +86,8 @@ def get_photos(rover_name):
     if photos:
         print("Photos received...")
         print(f"Photos taken by {rover_name} on {max_sol}:")
-        amount = 0
         for photo in photos:
-            if amount <= 5:
-                response.append({'image': photo['img_src'], 'camera_name': photo['camera']['name']})
-                amount += 1
-            else:
-                break
+            response.append({'image': photo['img_src'], 'camera_name': photo['camera']['name']})
     else:
         print(f"No photos found for {rover_name} on {max_date}.")
     print(curiosity_max, perseverance_max)
@@ -103,4 +98,4 @@ def get_photos(rover_name):
     session[cache_key] = response
     return response
 
-# run command: flask --app app --debug run
+# run command: python -m flask --app app --debug run
