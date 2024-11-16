@@ -65,7 +65,3 @@ html, body {
   width: auto; /* Allow the width to adjust based on the original aspect ratio */
 }
 
-/* .carousel-item {
-  display: flex; /* Ensure images are properly aligned in the row */
-  justify-content: center; /* Center images horizontally */
-} */
