@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block main %}
+
+<!-- Perseverance Carousel -->
+<div class="container my-5">
+  <h2>Perseverance Photos</h2>
+  <p>These photos were taken by Perseverance on {{perseverance_max}}</p>
+  <div id="perseveranceCarousel" class="carousel slide" data-interval="false">
+    <div class="carousel-inner">
+      {% for i in perseverance_photos | batch(3) %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="row">
+          {% for photo in i %}
+          <div class="col-md-4">
+            <img src="{{ photo['image'] }}" class="d-block w-100 resizable-image" alt="Perseverance Photo">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#perseveranceCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#perseveranceCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!-- Curiosity Carousel -->
+<div class="container my-5">
+  <h2>Curiosity Photos</h2>
+  <p>These photos were taken by Curiosity on {{curiosity_max}}</p>
+  <div id="curiosityCarousel" class="carousel slide" data-interval="false">
+    <div class="carousel-inner">
+      {% for i in curiosity_photos | batch(3) %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="row">
+          {% for photo in i %}
+          <div class="col-md-4">
+            <img src="{{ photo['image'] }}" class="d-block w-100 resizable-image" alt="Curiosity Photo" >
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#curiosityCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#curiosityCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+{% endblock %}
