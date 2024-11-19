@@ -11,7 +11,7 @@
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="row">
           {% for photo in i %}
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-12">
             <img src="{{ photo['image'] }}" class="d-block w-100 resizable-image" alt="Perseverance Photo">
           </div>
           {% endfor %}
@@ -40,7 +40,7 @@
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="row">
           {% for photo in i %}
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-12">
             <img src="{{ photo['image'] }}" class="d-block w-100 resizable-image" alt="Curiosity Photo" >
           </div>
           {% endfor %}

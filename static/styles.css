@@ -65,3 +65,35 @@ html, body {
   width: auto; /* Allow the width to adjust based on the original aspect ratio */
 }
 
+/* Move the controls to the sides of the carousel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto; /* Adjust the width if necessary */
+  height: 100%; /* Ensure it spans the height of the carousel */
+  display: flex; /* Center the icon vertically */
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: none; /* Remove any background */
+  z-index: 5; /* Ensure they stay on top */
+}
+
+.carousel-control-prev {
+  left: -50px; /* Adjust the horizontal offset as needed */
+}
+
+.carousel-control-next {
+  right: -50px; /* Adjust the horizontal offset as needed */
+}
+
+/* Ensure icons stay centered in their button areas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100%, 100%; /* Scale icons properly */
+  width: 2rem; /* Set the size of the icons */
+  height: 2rem;
+}
+
+
