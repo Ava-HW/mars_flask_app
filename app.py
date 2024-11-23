@@ -26,6 +26,11 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route("/cats")
+def cats():
+    return render_template('cats.html')
+
+
 @app.route("/photos")
 def photos():
     perseverance_photos = get_photos('perseverance')
