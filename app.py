@@ -17,9 +17,30 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 Session(app)
 
+import os
+
+def clear_session_files():
+    session_dir = os.path.join(app.root_path, 'flask_session')
+    if os.path.exists(session_dir):
+        for file in os.listdir(session_dir):
+            file_path = os.path.join(session_dir, file)
+            try:
+                os.remove(file_path)
+                app.logger.info(f"Deleted session file: {file_path}")
+            except Exception as e:
+                app.logger.error(f"Failed to delete {file_path}: {e}")
+
+clear_session_files()
+
+def format_date(max_date):
+    date_obj = datetime.strptime(max_date, "%Y-%m-%d")
+    formatted_date = date_obj.strftime("%#d %B %Y")  # %#d removes leading zero
+    print(formatted_date)
+    return formatted_date
+
+
 @app.route("/")
 def index():
-
     return render_template("index.html")
 
 @app.route("/about")
@@ -56,11 +77,11 @@ def get_max_sol(rover_name):
         print(f"ERROR: {response.status_code} - {response.reason}")
     if rover_name == "curiosity":
         curiosity_max = [max_sol, max_date]
-        curiosity_max_date = max_date
+        curiosity_max_date = format_date(max_date)
         app.logger.debug(f"curiosity_max: {curiosity_max}")
     if rover_name == "perseverance":
         perseverance_max = [max_sol, max_date]
-        perseverance_max_date = max_date
+        perseverance_max_date = format_date(max_date)
         app.logger.debug(f"perseverance_max: {perseverance_max}")
 
     return [max_sol, max_date]

@@ -148,3 +148,26 @@ footer p {
     display: none;
   }
 }
+
+
+.image-cropper {
+  width: 100%; /* Make the container as wide as the parent */
+  height: 0;
+  padding-top: 100%; /* This makes the container a square by setting the height to match the width */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-cropper img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the image */
+  width: 100%; /* Ensure the image takes up the full width */
+  height: 100%; /* Ensure the image takes up the full height */
+  object-fit: cover; /* Crop the image while maintaining its aspect ratio */
+}
+
+figure figcaption {
+  margin-top: 2%; /* Adjust the value as needed */
+}

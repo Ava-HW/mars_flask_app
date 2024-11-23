@@ -5,7 +5,7 @@
   <div class="hero-image">
     <div class="hero-text">
       <h1>Welcome to Mars Photos!</h1>
-      <p>Explore NASA's images of Mars</p>
+      <p>Explore NASA's latest images of Mars</p>
       <a href="/photos" class="btn btn-primary text-white text-decoration-none">View photos</a>
     </div>
   </div>
@@ -16,11 +16,16 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">NASA has two operational rovers on Mars.</h2>
+        <h2 class="featurette-heading">NASA has two operational rovers on Mars</h2>
         <p class="lead">Curiosity landed on Mars in 2012 and Perseverance landed in 2021.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <figure>
+          <div class = "image-cropper">
+          <img src="..\static\images\perseverance_under_construction.jpg" class="featurette-image img-fluid mx-auto" alt="Perseverance Under Construction">
+        </div>
+          <figcaption class="text-center">Perseverance Rover under construction in 2019. <a href="https://science.nasa.gov/resource/mars-2020-rover-is-roving">Image source</a></figcaption>
+        </figure>
       </div>
     </div>
 
@@ -28,11 +33,16 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Curiosity and Perseverance have taken over 150,000 images.</h2>
-        <p class="lead">Another fun fact here</p>
+        <h2 class="featurette-heading">Curiosity and Perseverance have taken over 150,000 images</h2>
+        <p class="lead">These images are used for researching Mars's surface, navigation, and inspecting the rovers themselves.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <figure>
+          <div class = "image-cropper">
+          <img src="../static/images/selfie_with_ingenuity.jpg" class="featurette-image img-fluid mx-auto" alt="Perseverance Under Construction">
+        </div>
+          <figcaption class="text-center">Perseverance's "selfie" taken with its companion helicopter, Ingenuity. <a href="https://science.nasa.gov/resource/perseverances-selfie-with-ingenuity/">Image source</a></figcaption>
+        </figure>
       </div>
     </div>
 
@@ -40,15 +50,17 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">Third fun fact</h2>
-        <p class="lead">Insert fun fact here</p>
+        <h2 class="featurette-heading">Both rovers have advanced our understanding of Mars</h2>
+        <p class="lead">Perseverance has discovered volcanic rock on the surface of Mars and Curiosity has found signs that Mars could have supported life.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
+        <figure>
+          <div class = "image-cropper">
+          <img src="../static/images/aeolis_mons.jpg" class="featurette-image img-fluid mx-auto" alt="Aeolis Mons, the location where Curiosity discovered signs of Mars being able to support life.">
+        </div>
+          <figcaption class="text-center">Aeolis Mons, the area where Curiosity discovered signs of Mars being able to support life. <a href="https://www.nasa.gov/image-article/curiosity-rover-gets-ready-next-adventure/">Image source</a></figcaption>
+        </figure>      </div>
     </div>
-
-    <hr class="featurette-divider">
   </div>
 </main>
 {% endblock %}
