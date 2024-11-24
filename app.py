@@ -19,6 +19,9 @@ Session(app)
 
 import os
 
+# test updating in PythonAnywhere
+
+
 def clear_session_files():
     session_dir = os.path.join(app.root_path, 'flask_session')
     if os.path.exists(session_dir):
