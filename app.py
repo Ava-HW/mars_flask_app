@@ -4,6 +4,7 @@ from flask_session import Session
 from datetime import datetime, timedelta
 import requests
 import sys
+import os
 
 api_key = "RjE7wCLmJXnlXVS8z6tyyJpe8G8dmXHgXIqafvAc"
 
@@ -17,10 +18,7 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 Session(app)
 
-import os
-
-# test updating in PythonAnywhere
-
+# clears session files every time the app starts
 
 def clear_session_files():
     session_dir = os.path.join(app.root_path, 'flask_session')
@@ -35,26 +33,29 @@ def clear_session_files():
 
 clear_session_files()
 
+# formats dates
 def format_date(max_date):
     date_obj = datetime.strptime(max_date, "%Y-%m-%d")
     formatted_date = date_obj.strftime("%#d %B %Y")  # %#d removes leading zero
     print(formatted_date)
     return formatted_date
 
-
+# renders index.html
 @app.route("/")
 def index():
     return render_template("index.html")
 
+# renders about.html
 @app.route("/about")
 def about():
     return render_template('about.html')
 
+# renders cats.html
 @app.route("/cats")
 def cats():
     return render_template('cats.html')
 
-
+# renders photos.html and calls function to get photos from api
 @app.route("/photos")
 def photos():
     perseverance_photos = get_photos('perseverance')
@@ -62,6 +63,7 @@ def photos():
     return render_template("photos.html", perseverance_photos=perseverance_photos, curiosity_photos=curiosity_photos, perseverance_max=perseverance_max_date, curiosity_max=curiosity_max_date)
 
 
+# gets the most recent sol that each rover has photos for
 def get_max_sol(rover_name):
     global curiosity_max_date, perseverance_max_date
     # make request to api for rover's first sol
@@ -78,10 +80,12 @@ def get_max_sol(rover_name):
         max_date = data['photos'][0]['rover']['max_date']
     else:
         print(f"ERROR: {response.status_code} - {response.reason}")
+    # sets Curiosity's max_date
     if rover_name == "curiosity":
         curiosity_max = [max_sol, max_date]
         curiosity_max_date = format_date(max_date)
         app.logger.debug(f"curiosity_max: {curiosity_max}")
+    # sets Perseverance's max_date
     if rover_name == "perseverance":
         perseverance_max = [max_sol, max_date]
         perseverance_max_date = format_date(max_date)
@@ -89,18 +93,17 @@ def get_max_sol(rover_name):
 
     return [max_sol, max_date]
 
+
 def get_photos(rover_name):
     cache_key = f"{rover_name}_photos"
+    # checks if rover's photos are already in the cache
     if cache_key in session:
         return session[cache_key]
-    # # get max_sol for the rover
+    # get max_sol for the rover
     maxes = get_max_sol(rover_name)
     max_sol = maxes[0]
     max_date = maxes[1]
-    app.logger.debug("This is a debug message")
-    # print(f"Max sol for {rover_name}: {max_sol}")
-    # print(f"Max date for {rover_name}: {max_date}")
-    # Define the endpoint and parameters
+    # Define the API url and parameters
     url = f'https://api.nasa.gov/mars-photos/api/v1/rovers/{rover_name}/photos?&api_key=RjE7wCLmJXnlXVS8z6tyyJpe8G8dmXHgXIqafvAc'
     params = {
         'sol': max_sol,
@@ -111,21 +114,15 @@ def get_photos(rover_name):
     response = requests.get(url, params=params)
     print("Response received...")
     data = response.json()
-    # Check if photos were found and print their URLs
+    # Check if photos were found and add to list of photos
     response = []
     photos = data.get('photos', [])
     if photos:
-        print("Photos received...")
-        print(f"Photos taken by {rover_name} on {max_sol}:")
         for photo in photos:
             response.append({'image': photo['img_src'], 'camera_name': photo['camera']['name']})
     else:
         print(f"No photos found for {rover_name} on {max_date}.")
-    print(curiosity_max_date, perseverance_max_date)
-
-    # make re
-    # if no photos for today, try the day before (get_photos(days_ago + 1)
-    # returns list of dicts with image srcs, camera name, 
+    # returns list of dicts with image srcs, camera name,
     session[cache_key] = response
     return response
 
