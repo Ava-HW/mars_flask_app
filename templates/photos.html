@@ -75,44 +75,31 @@
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     if (isMobile) {
-      // Handle Perseverance Carousel
-      const perseveranceInner = document.querySelector("#perseveranceCarousel .carousel-inner");
-      const perseverancePhotos = [...perseveranceInner.querySelectorAll("img")];
-      perseveranceInner.innerHTML = ""; // Clear existing slides
+      const configureCarouselForMobile = (carouselId) => {
+        const carouselInner = document.querySelector(`#${carouselId} .carousel-inner`);
+        const photos = [...carouselInner.querySelectorAll("img")];
+        carouselInner.innerHTML = ""; // Clear existing slides
 
-      perseverancePhotos.forEach((photo, index) => {
-        const item = document.createElement("div");
-        item.className = `carousel-item ${index === 0 ? "active" : ""}`;
-        
-        const col = document.createElement("div");
-        col.className = "col-12";
+        photos.forEach((photo, index) => {
+          const item = document.createElement("div");
+          item.className = `carousel-item ${index === 0 ? "active" : ""}`;
+          
+          const col = document.createElement("div");
+          col.className = "col-12"; // Make the image take full width on mobile
 
-        col.appendChild(photo);
-        item.appendChild(col);
+          col.appendChild(photo);
+          item.appendChild(col);
 
-        perseveranceInner.appendChild(item);
-      });
+          carouselInner.appendChild(item);
+        });
+      };
 
-      // Handle Curiosity Carousel
-      const curiosityInner = document.querySelector("#curiosityCarousel .carousel-inner");
-      const curiosityPhotos = [...curiosityInner.querySelectorAll("img")];
-      curiosityInner.innerHTML = ""; // Clear existing slides
-
-      curiosityPhotos.forEach((photo, index) => {
-        const item = document.createElement("div");
-        item.className = `carousel-item ${index === 0 ? "active" : ""}`;
-        
-        const col = document.createElement("div");
-        col.className = "col-12";
-
-        col.appendChild(photo);
-        item.appendChild(col);
-
-        curiosityInner.appendChild(item);
-      });
+      configureCarouselForMobile("perseveranceCarousel");
+      configureCarouselForMobile("curiosityCarousel");
     }
   });
 </script>
+
 
 
 

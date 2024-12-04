@@ -142,12 +142,46 @@ footer p {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .carousel-control-prev,
   .carousel-control-next {
     display: none;
   }
+} */
+
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: flex; /* Ensure they are visible */
+    position: absolute; /* Position them on top of the images */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background for better visibility */
+    color: #ffffff; /* Ensure the controls are visible */
+    width: 40px; /* Narrow the controls for mobile */
+    height: 40px; /* Match the width */
+    justify-content: center; /* Center the icon */
+    align-items: center; /* Center the icon */
+    z-index: 10; /* Ensure controls are above images */
+    border-radius: 50%; /* Make them circular */
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 80%, 80%; /* Scale the icons slightly smaller for mobile */
+    width: 1.5rem; /* Adjust size for better fit */
+    height: 1.5rem;
+  }
+
+  .carousel-control-prev {
+    left: 10px; /* Adjust horizontal position */
+  }
+
+  .carousel-control-next {
+    right: 10px; /* Adjust horizontal position */
+  }
 }
+
 
 
 .image-cropper {
