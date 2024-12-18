@@ -38,15 +38,17 @@ Photos page with explanation and carousel
 Jinja syntax used to render carousels
 
 ## /about
-This route provides the link to the API where the images are sourced from and credits the cover image on the home page. You can only access this route by folllowing the link in the About page. 
+This route provides the link to the API where the images are sourced from and credits the cover image on the home page. 
+
+<img src="https://github.com/user-attachments/assets/89da87a7-9bc8-4f3c-b8bd-235827a408d0" alt="About page" width = 50%>
 
 ## /cats
-This route displays a photo of Felicity and Erik, two people who were instrumental in creating this project. 
+This route displays a photo of Felicity and Erik, two people who were instrumental in creating this project. You can only access this route by folllowing the link in the About page. 
 
-![A grey cat and an orange cat curled up in a basket](https://github.com/Ava-HW/mars_flask_app/blob/master/static/images/20240731_151317.jpg)
+<img src="https://github.com/Ava-HW/mars_flask_app/blob/master/static/images/20240731_151317.jpg" width = 40%>
 
 ## Credits
-The images displayed in this app are from [NASA's Open APIs](https://api.nasa.gov/). 
+The images displayed in this app are from [NASA's Open APIs](https://api.nasa.gov/). <br>
 Cover image on home page: [Perseverance’s Selfie With ‘Cheyava Falls’](https://science.nasa.gov/resource/perseverances-selfie-with-cheyava-falls)
 
 
