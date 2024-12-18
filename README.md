@@ -42,6 +42,8 @@ This route provides the link to the API where the images are sourced from and cr
 
 <img src="https://github.com/user-attachments/assets/89da87a7-9bc8-4f3c-b8bd-235827a408d0" alt="About page" width = 50%>
 
+About page
+
 ## /cats
 This route displays a photo of Felicity and Erik, two people who were instrumental in creating this project. You can only access this route by folllowing the link in the About page. 
 
