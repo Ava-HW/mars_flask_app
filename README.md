@@ -45,7 +45,7 @@ This route provides the link to the API where the images are sourced from and cr
 About page
 
 ## /cats
-This route displays a photo of Felicity and Erik, creatures who were instrumental in creating this project. You can only access this route by folllowing the link in the About page. This easter egg is for committed fans of Mars and cats!
+This route displays a photo of Felicity and Erik, creatures who were instrumental in creating this project. You can only access this route by following the link in the About page. This easter egg is for committed fans of Mars and cats!
 
 <img src="https://github.com/Ava-HW/mars_flask_app/blob/master/static/images/20240731_151317.jpg" width = 40%>
 
