@@ -1,5 +1,4 @@
 # Mars Photos Flask App
-#### Video Demo:  <URL HERE>
 
 ## __Welcome to Mars Photos!__
 
